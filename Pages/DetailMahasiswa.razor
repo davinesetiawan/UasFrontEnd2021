@@ -1,0 +1,22 @@
+@page "/mhsdetail/{id}"
+
+@if(Mahasiswa == null)
+{
+    <div class="spinner"></div>
+}
+    else
+    {
+        <div class="card">
+            <div class="card-header">
+                <h1>Details</h1>
+                <h3>Student</h3>
+            </div>
+            <div class="card-body">
+                <p><b>NIM</b> @Mahasiswa.studentID</p>
+                <p><b>Nama Belakang</b> @Mahasiswa.lastName</p>
+                <p><b>Nama Depan</b> @Mahasiswa.firstName</p>
+                <p><b>Tanggal Masuk</b> @Mahasiswa.enrollmentDate</p>
+                <a href="@($"mhsedit/{Mahasiswa.studentID}")">Edit</a> | <a href="/mhspage">Back to List</a>
+            </div>
+        </div>
+}

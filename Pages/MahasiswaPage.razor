@@ -1,0 +1,41 @@
+@page "/mhspage"
+
+<h1>List of Student</h1>
+
+@if (Mahasiswa == null)
+{
+    <div class="spinner"></div>
+}
+    else
+    {
+        <a href="mhsadd">Create New</a>
+        <br>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">NIM</th>
+                    <th scope="col">Nama Belakang</th>
+                    <th scope="col">Nama Depan</th>
+                    <th scope="col">Tanggal Masuk</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var mhs in Mahasiswa)
+                {
+                    <tr>
+                        <td>@mhs.studentID</td>
+                        <td>@mhs.lastName</td>
+                        <td>@mhs.firstName</td>
+                        <td>@mhs.enrollmentDate</td>
+                        <td>
+                            <a href="@($"mhsdetail/{mhs.studentID}")" class="btn btn-info">details</a>
+                            <a href="enrolpage" class="btn btn-primary">enroll</a>
+                            <a href="@($"mhsedit/{mhs.studentID}")" class="btn btn-warning">edit</a>
+                            <a href="@($"mhsdelete/{mhs.studentID}")"  class="btn btn-danger">delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
